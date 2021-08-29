@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.carbooking.adapter.persistence.CarRentalInfoMapper">
+    <insert id="save">
+        insert into car_rental_info(id, car_id, rental_date, order_id, created_user, last_modified_user)
+        values(uuid(), #{carRentalInfo.carId}, #{carRentalInfo.rentalDate}, #{carRentalInfo.orderId},'system', 'system')
+    </insert>
+    <delete id="delete">
+        delete from car_rental_info where car_id = #{carId} and rental_date = #{rentalDate}
+    </delete>
+
+    <select id="findBy" resultType="com.demo.carbooking.domain.CarRentalInfo">
+        select id, car_id, rental_date, order_id from car_rental_info where car_id = #{carId}
+    </select>
+    <select id="findByOrderId" resultType="com.demo.carbooking.domain.CarRentalInfo">
+         select id, car_id, rental_date, order_id from car_rental_info where order_id = #{orderId}
+    </select>
+</mapper>

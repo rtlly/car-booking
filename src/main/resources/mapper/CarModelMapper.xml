@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.carbooking.adapter.persistence.CarModelMapper">
+
+    <select id="findByType" resultType="com.demo.carbooking.domain.CarModel">
+        select id, car_number, `type`, rent_price from car_model where `type` = #{type}
+    </select>
+    <select id="finById" resultType="com.demo.carbooking.domain.CarModel">
+        select id, car_number, `type`, rent_price from car_model where id = #{carId}
+    </select>
+    <select id="findAll" resultType="com.demo.carbooking.domain.CarModel">
+        select id, car_number, `type`, rent_price from car_model
+    </select>
+</mapper>

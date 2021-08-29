@@ -1,7 +1,9 @@
 create table if not exists booking_order(
     id                 varchar(50)                         not null comment 'ID'  primary key,
     customer_id        varchar(50)                         not null comment '用户id',
-    returned_date      date                                not null comment '还车日期',
+    returned_date      date                                null comment '还车日期',
+    start_date      date                                   not null comment '起始日期',
+    end_date      date                                     not null comment '结束日期',
     `state`            varchar(50)                         not null comment '订单状态',
     created_user       varchar(50)                         not null comment '数据创建人',
     created_dt         timestamp default CURRENT_TIMESTAMP not null comment '数据创建时间',

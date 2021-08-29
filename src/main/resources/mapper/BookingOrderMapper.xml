@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.carbooking.adapter.persistence.BookingOrderMapper">
+    <insert id="save">
+        insert into booking_order(id, customer_id, returned_date, start_date, end_date,`state`, created_user, last_modified_user)
+        values(#{order.id}, #{order.customerId},#{order.returnedDate},#{order.startDate},#{order.endDate},#{order.state}, 'system', 'system')
+    </insert>
+    <update id="update">
+        update booking_order set returned_date = #{order.returnedDate}, `state` = #{order.state}
+        where id = #{order.id}
+    </update>
+
+    <select id="findByCustomerId" resultType="com.demo.carbooking.domain.BookingOrder"></select>
+    <select id="findById" resultType="com.demo.carbooking.domain.BookingOrder">
+        select id, customer_id, returned_date, start_date, end_date,`state` from booking_order where id = #{orderId}
+    </select>
+</mapper>
