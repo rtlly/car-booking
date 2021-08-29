@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: car-rental
+  datasource:
+    url: jdbc:mysql://server492030297.mysql.database.azure.com:3306/sampledb?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    name: sampledb
+    username: validHamster6@server492030297
+    password: 112d15c6-6ec3-41cc-a9d0-56597cf3c849
+    hikari:
+      leak-detection-threshold: 30000
+      connection-test-query: SELECT 1
+      max-lifetime: 28700000
+      validation-timeout: 15000
+  flyway:
+    enabled: true
+    out-of-order: true
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+
+info.environment: ${SPRING_PROFILES_ACTIVE:NONE}
